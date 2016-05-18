@@ -29,6 +29,27 @@ IntensityImage * StudentPreProcessing::stepEdgeDetection(const IntensityImage &i
 	IntensityImage * x = ImageFactory::newIntensityImage();
 	x->set(image.getWidth(), image.getHeight());
 
+	Kernel EdgeFourKern = Kernel(3, 3);
+
+	int8_t kern[3][3] = {	{ 0, -1, 0 },
+							{-1,  4,-1 },
+							{ 0, -1, 0 } };
+
+	/*
+	EdgeFourKern.setKernelPoint(0, 0, 0);
+	EdgeFourKern.setKernelPoint(1, 0, -1);
+	EdgeFourKern.setKernelPoint(2, 0, 0);
+	EdgeFourKern.setKernelPoint(0, 1, -1);
+	EdgeFourKern.setKernelPoint(1, 1, 4);
+	EdgeFourKern.setKernelPoint(2, 1, -1);
+	EdgeFourKern.setKernelPoint(0, 2, 0);
+	EdgeFourKern.setKernelPoint(1, 2, -1);
+	EdgeFourKern.setKernelPoint(2, 2, 0);
+	*/
+
+	EdgeFourKern.setKernel(kern);
+	std::cout << EdgeFourKern;
+
 	for (int i = 0; i < (image.getHeight() * image.getWidth()); ++i){
 		x->setPixel(i, image.getPixel(i));
 	}
