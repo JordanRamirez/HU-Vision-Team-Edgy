@@ -94,7 +94,7 @@ namespace FaceRecognitionGUI
                 createFile(path);
             }
             FileStream fs = new FileStream(path, FileMode.Open);
-
+            
             TestSetFile temp = (TestSetFile)serializer.Deserialize(fs);
             fs.Close();
 

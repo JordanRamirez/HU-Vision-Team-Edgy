@@ -16,7 +16,7 @@ bool executeSteps(DLLExecution * executor);
 int main(int argc, char * argv[]) {
 
 	ImageFactory::setImplementation(ImageFactory::DEFAULT);
-	//ImageFactory::setImplementation(ImageFactory::STUDENT);
+	
 
 
 	ImageIO::debugFolder = "../DebugOutput/";
@@ -61,9 +61,9 @@ int main(int argc, char * argv[]) {
 
 
 bool executeSteps(DLLExecution * executor) {
-
+	
 	//Execute the four Pre-processing steps
-	if (!executor->executePreProcessingStep1(false)) {
+	if (!executor->executePreProcessingStep1(true)) {
 		std::cout << "Pre-processing step 1 failed!" << std::endl;
 		return false;
 	}
@@ -74,19 +74,20 @@ bool executeSteps(DLLExecution * executor) {
 	}
 	ImageIO::saveIntensityImage(*executor->resultPreProcessingStep2, ImageIO::getDebugFileName("Pre-processing-2.png"));
 
-	if (!executor->executePreProcessingStep3(false)) {
+	if (!executor->executePreProcessingStep3(true)) {
 		std::cout << "Pre-processing step 3 failed!" << std::endl;
 		return false;
 	}
 	ImageIO::saveIntensityImage(*executor->resultPreProcessingStep3, ImageIO::getDebugFileName("Pre-processing-3.png"));
-
-	if (!executor->executePreProcessingStep4(false)) {
+	
+	if (!executor->executePreProcessingStep4(true)) {
 		std::cout << "Pre-processing step 4 failed!" << std::endl;
 		return false;
 	}
 	ImageIO::saveIntensityImage(*executor->resultPreProcessingStep4, ImageIO::getDebugFileName("Pre-processing-4.png"));
-
-
+	
+	
+	
 
 	//Execute the localization steps
 	if (!executor->prepareLocalization()) {
