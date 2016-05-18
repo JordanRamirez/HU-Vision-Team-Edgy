@@ -13,7 +13,7 @@ ExternalDLL/ExternalDLL/OpenCV/staticlib_x86_vc12/OpenCVModules-release.cmake
 
 
 ExternalDLL/ExternalDLL/Debug/
-ExternalDLL/DebugOutput/
+ExternalDLL/ExternalDLL/DebugOutput/
 FaceRecognitionGUI/FaceRecognitionGUI/bin/
 FaceRecognitionGUI/FaceRecognitionGUI/obj/
 
