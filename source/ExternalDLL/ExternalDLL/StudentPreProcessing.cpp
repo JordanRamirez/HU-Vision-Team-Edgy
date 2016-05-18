@@ -40,11 +40,11 @@ IntensityImage * StudentPreProcessing::stepThresholding(const IntensityImage &im
 	IntensityImage * x = ImageFactory::newIntensityImage();
 	x->set(image.getWidth(), image.getHeight());
 
-	int thresholdValue = 170;
+	int thresholdValue = 140;
 
 	for (int i = 0; i < (image.getHeight() * image.getWidth()); ++i){
 		Intensity currentPixel = image.getPixel(i);
-		if (currentPixel >= 170){
+		if (currentPixel >= thresholdValue){
 			currentPixel = 255;
 		}
 		else{
